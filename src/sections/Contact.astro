@@ -7,35 +7,35 @@ import ContactLink from "../components/ContactLink.astro";
   <div class="max-w-content mx-auto">
 
     <div class="js-reveal">
-      <SectionHeading segment="SEGMENT 06" title="Contact" />
+      <SectionHeading segment="WE19 — Test IDoc" title="Let's Work Together" />
     </div>
 
     <div class="js-reveal max-w-xl">
-      <p class="font-body text-base text-ink leading-relaxed mb-8">
+      <p class="font-body text-base text-ink leading-relaxed mb-10">
         If you're evaluating SAP EDI/ALE specialists for a new engagement, internal transfer,
         or consulting opportunity — I'd like to hear about it.
         Email is fastest; I'm on LinkedIn daily.
       </p>
 
       <div class="space-y-3">
-        <!-- Email row with copy button -->
+        <!-- Email — primary CTA -->
         <div class="flex items-stretch gap-2">
           <a
             href="mailto:pereiravijeth@gmail.com"
-            class="flex items-center gap-4 border border-line px-5 py-4 hover:border-posted transition-colors group flex-1 min-w-0"
+            class="group flex items-center gap-4 bg-cta text-white px-5 py-4 hover:opacity-90 transition-opacity duration-200 flex-1 min-w-0 cursor-pointer"
           >
             <div class="flex-1 min-w-0">
-              <p class="font-display text-sm font-semibold text-ink group-hover:text-posted transition-colors truncate">
+              <p class="font-display text-sm font-bold leading-tight truncate">
                 pereiravijeth@gmail.com
               </p>
-              <p class="font-body text-xs text-muted mt-0.5">Email — fastest response</p>
+              <p class="font-body text-xs opacity-80 mt-0.5">Email — fastest response</p>
             </div>
-            <span class="font-display text-sm text-muted group-hover:text-posted transition-colors flex-shrink-0" aria-hidden="true">→</span>
+            <span class="font-display text-base flex-shrink-0" aria-hidden="true">→</span>
           </a>
           <button
             id="copy-email"
             aria-label="Copy email address"
-            class="border border-line px-4 py-4 font-display text-xs text-muted hover:border-posted hover:text-posted transition-colors flex-shrink-0"
+            class="border border-line bg-surface px-4 py-4 font-display text-xs font-medium text-muted hover:border-posted hover:text-posted transition-colors duration-200 flex-shrink-0 cursor-pointer"
           >
             <span id="copy-label">Copy</span>
           </button>
@@ -50,17 +50,17 @@ import ContactLink from "../components/ContactLink.astro";
       </div>
 
       <script>
-        const btn = document.getElementById('copy-email');
-        const label = document.getElementById('copy-label');
-        btn?.addEventListener('click', async () => {
-          await navigator.clipboard.writeText('pereiravijeth@gmail.com');
-          if (label) label.textContent = 'Copied!';
-          setTimeout(() => { if (label) label.textContent = 'Copy'; }, 2000);
+        const btn   = document.getElementById("copy-email");
+        const label = document.getElementById("copy-label");
+        btn?.addEventListener("click", async () => {
+          await navigator.clipboard.writeText("pereiravijeth@gmail.com");
+          if (label) label.textContent = "Copied!";
+          setTimeout(() => { if (label) label.textContent = "Copy"; }, 2000);
         });
       </script>
 
-      <p class="font-display text-xs text-muted uppercase tracking-widest mt-8">
-        Mangaluru, India &nbsp;·&nbsp; Remote &nbsp;·&nbsp; +91-9972858537
+      <p class="font-display text-xs text-muted uppercase tracking-widest mt-10">
+        Bengaluru, India &nbsp;·&nbsp; Remote &nbsp;·&nbsp; +91-9972858537
       </p>
     </div>
 

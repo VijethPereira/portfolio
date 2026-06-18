@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code
+.claude/
+.agents/
+
+# ui-ux-pro-max plugin artifacts
+design-system/
+skills-lock.json

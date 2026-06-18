@@ -10,18 +10,18 @@ const { href, label, sublabel, external = false } = Astro.props;
 
 <a
   href={href}
-  class="flex items-center gap-4 border border-line px-5 py-4 hover:border-posted transition-colors group"
+  class="flex items-center gap-4 border border-line px-5 py-4 hover:border-cta transition-colors duration-200 group cursor-pointer"
   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 >
   <div class="flex-1 min-w-0">
-    <p class="font-display text-sm font-semibold text-ink group-hover:text-posted transition-colors truncate">
+    <p class="font-display text-sm font-semibold text-ink group-hover:text-cta transition-colors truncate">
       {label}
     </p>
     {sublabel && (
       <p class="font-body text-xs text-muted mt-0.5">{sublabel}</p>
     )}
   </div>
-  <span class="font-display text-sm text-muted group-hover:text-posted transition-colors flex-shrink-0" aria-hidden="true">
+  <span class="font-display text-sm text-muted group-hover:text-cta transition-colors flex-shrink-0" aria-hidden="true">
     →
   </span>
 </a>

@@ -4,94 +4,107 @@ import SkillTag from "../components/SkillTag.astro";
 
 const groups = [
   {
-    title: "EDI Standards",
-    skills: [
-      { label: "ANSI X12", status: "posted" as const },
-      { label: "EDIFACT", status: "posted" as const },
-      { label: "VDA", status: "posted" as const },
-      { label: "TRADACOM", status: "posted" as const },
-      { label: "XML", status: "posted" as const },
-    ],
-  },
-  {
     title: "IDoc & ALE",
+    featured: true,
     skills: [
       { label: "SAP ALE", status: "posted" as const },
-      { label: "IDoc Monitoring", status: "posted" as const },
-      { label: "IDoc Development", status: "posted" as const },
+      { label: "IDoc Monitoring & Reprocessing", status: "posted" as const },
+      { label: "IDoc Error Resolution", status: "posted" as const },
       { label: "Partner Profiles & Ports", status: "posted" as const },
-      { label: "Distribution Model", status: "posted" as const },
-      { label: "Master Data Distribution", status: "posted" as const },
-    ],
-  },
-  {
-    title: "Middleware",
-    skills: [
-      { label: "OpenText GXS (TGMS)", status: "posted" as const },
-      { label: "Seeburger B2B", status: "posted" as const },
-      { label: "GIB", status: "posted" as const },
-      { label: "GXS TeamBook", status: "posted" as const },
-      { label: "MT Portal", status: "posted" as const },
-    ],
-  },
-  {
-    title: "Connectivity",
-    skills: [
-      { label: "RFC", status: "posted" as const },
-      { label: "FTP / SFTP", status: "posted" as const },
-      { label: "VANs / WANs", status: "posted" as const },
+      { label: "RFC Destinations", status: "posted" as const },
+      { label: "WE20 / WE02 / WE19", status: "posted" as const },
     ],
   },
   {
     title: "ABAP Development",
+    featured: true,
     skills: [
       { label: "ABAP Debugging", status: "posted" as const },
-      { label: "User Exits", status: "posted" as const },
-      { label: "Data Dictionary", status: "posted" as const },
-      { label: "ALV Reports", status: "posted" as const },
+      { label: "EDI User Exits", status: "posted" as const },
       { label: "Enhancement CRs", status: "posted" as const },
+      { label: "VOE2 / VOE4 / NACE", status: "posted" as const },
     ],
   },
   {
     title: "SAP Modules",
+    featured: true,
     skills: [
-      { label: "SD (Sales & Distribution)", status: "posted" as const },
-      { label: "LE (Logistics Execution)", status: "posted" as const },
-      { label: "MM (Materials Management)", status: "posted" as const },
+      { label: "SD — Sales & Distribution", status: "posted" as const },
+      { label: "LE — Logistics Execution", status: "posted" as const },
+      { label: "MM — Materials Management", status: "posted" as const },
       { label: "OTC Process", status: "posted" as const },
     ],
   },
   {
-    title: "Tools & Languages",
+    title: "EDI Standards",
+    featured: false,
+    skills: [
+      { label: "ANSI X12", status: "posted" as const },
+      { label: "EDIFACT", status: "posted" as const },
+      { label: "VDA", status: "posted" as const },
+      { label: "XML", status: "posted" as const },
+    ],
+  },
+  {
+    title: "Middleware & Connectivity",
+    featured: false,
+    skills: [
+      { label: "OpenText GXS (TGMS)", status: "posted" as const },
+      { label: "Seeburger B2B", status: "posted" as const },
+      { label: "GIB", status: "posted" as const },
+      { label: "RFC / FTP / SFTP", status: "posted" as const },
+      { label: "VANs / WANs", status: "posted" as const },
+    ],
+  },
+  {
+    title: "Tools",
+    featured: false,
     skills: [
       { label: "ServiceNow", status: "posted" as const },
-      { label: "SAP Job Scheduling", status: "posted" as const },
-      { label: "German (A1 → A2)", status: "pending" as const },
+      { label: "SAP Job Scheduling (SM37)", status: "posted" as const },
     ],
   },
 ];
+
+const featured = groups.filter(g => g.featured);
+const rest     = groups.filter(g => !g.featured);
 ---
 
 <section id="skills" class="py-16 lg:py-24 px-6 border-t border-line">
   <div class="max-w-content mx-auto">
 
     <div class="js-reveal">
-      <SectionHeading segment="SEGMENT 03" title="Skills" />
+      <SectionHeading segment="BD10 — Master Data" title="Skills" />
     </div>
 
-    <div class="js-reveal flex items-center gap-6 mb-10">
-      <span class="inline-flex items-center gap-2 font-display text-xs text-muted uppercase tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-posted" aria-hidden="true" /> POSTED · active
+    <div class="js-reveal flex items-center gap-6 mb-12">
+      <span class="inline-flex items-center gap-2 font-display text-xs font-medium text-muted uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-posted" aria-hidden="true" /> Active
       </span>
-      <span class="inline-flex items-center gap-2 font-display text-xs text-muted uppercase tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-pending" aria-hidden="true" /> PENDING · developing
+      <span class="inline-flex items-center gap-2 font-display text-xs font-medium text-muted uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-pending" aria-hidden="true" /> Developing
       </span>
     </div>
 
-    <div class="space-y-10">
-      {groups.map((group, gi) => (
+    <!-- Featured SAP groups — bento cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+      {featured.map((group, gi) => (
+        <div class="js-reveal-scale border border-line bg-surface p-6 hover:border-cta transition-colors duration-300" style={`--delay: ${gi * 80}ms`}>
+          <p class="font-display text-xs font-semibold text-cta uppercase tracking-widest mb-4">{group.title}</p>
+          <div class="flex flex-wrap gap-2">
+            {group.skills.map((s) => (
+              <SkillTag label={s.label} status={s.status} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Secondary groups -->
+    <div class="space-y-8 pt-6 border-t border-line">
+      {rest.map((group, gi) => (
         <div class="js-reveal" style={`--delay: ${gi * 60}ms`}>
-          <p class="font-display text-xs text-muted uppercase tracking-widest mb-4">{group.title}</p>
+          <p class="font-display text-xs font-medium text-muted uppercase tracking-widest mb-3">{group.title}</p>
           <div class="flex flex-wrap gap-2">
             {group.skills.map((s) => (
               <SkillTag label={s.label} status={s.status} />

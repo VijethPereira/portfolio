@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
-/* Enable class-based dark mode for dark: prefix */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Semantic color system — maps to IDoc status vocabulary */
-  --color-paper: #F2F3F1;
-  --color-surface: #FBFBFA;
-  --color-ink: #15171A;
-  --color-muted: #5B5F63;
-  --color-line: #D9DBD7;
-  --color-posted: #2F6B4F;   /* posted = successfully processed */
-  --color-pending: #8F6315;  /* pending = still in progress    */
+  /* Semantic IDoc status colors — restored */
+  --color-posted:  #2F6B4F;   /* posted = actively processed / live */
+  --color-pending: #8F6315;   /* pending = in progress / developing */
 
-  /* One family, two cuts */
-  --font-display: "IBM Plex Mono", monospace;
-  --font-body: "IBM Plex Sans", sans-serif;
+  /* UI accent — CTA buttons, labels, interactive highlights */
+  --color-cta:     #2563EB;
+
+  /* Neutral base */
+  --color-paper:   #FAFAFA;
+  --color-surface: #F4F4F5;
+  --color-ink:     #09090B;
+  --color-muted:   #71717A;
+  --color-line:    #E4E4E7;
+
+  /* Archivo (headings) + Space Grotesk (body) */
+  --font-display: "Archivo", sans-serif;
+  --font-body:    "Space Grotesk", sans-serif;
 
   --max-width-content: 72rem;
 }
@@ -24,65 +28,89 @@
   html {
     background-color: var(--color-paper);
     color: var(--color-ink);
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     scroll-behavior: smooth;
-    /* Smooth theme transition — only on toggle, not on initial paint */
-    transition: background-color 200ms ease, color 200ms ease;
+    transition: background-color 250ms ease, color 250ms ease;
   }
 
   body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   :focus-visible {
-    outline: 2px solid #2F6B4F;
+    outline: 2px solid var(--color-cta);
     outline-offset: 2px;
   }
 }
 
-/* Atmospheric gradient background — brand green top-left, amber bottom-right */
-#bg-pattern {
-  background:
-    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(47, 107, 79, 0.22) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 70% at 100% 100%, rgba(143, 99, 21, 0.16) 0%, transparent 65%);
-}
-
-html.dark #bg-pattern {
-  background:
-    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(82, 168, 122, 0.16) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 70% at 100% 100%, rgba(196, 146, 46, 0.11) 0%, transparent 65%);
-}
-
-/* Dark mode — override all color tokens when .dark is on <html> */
+/* Dark mode */
 html.dark {
-  --color-paper: #111318;
-  --color-surface: #1C1F26;
-  --color-ink: #EAEAE8;
-  --color-muted: #7A7E85;
-  --color-line: #2C2F38;
-  --color-posted: #52A87A;
+  --color-posted:  #52A87A;
   --color-pending: #C4922E;
+  --color-cta:     #60A5FA;
+  --color-paper:   #09090B;
+  --color-surface: #18181B;
+  --color-ink:     #FAFAFA;
+  --color-muted:   #A1A1AA;
+  --color-line:    #27272A;
 }
 
-/* Scroll-reveal — IntersectionObserver adds .revealed (§8) */
+/* Ambient background layers — subtle, parallax-ready */
+#bg-layer-1 {
+  background: radial-gradient(ellipse 80% 60% at 0% 0%, rgba(47, 107, 79, 0.08) 0%, transparent 65%);
+}
+#bg-layer-2 {
+  background: radial-gradient(ellipse 60% 60% at 100% 100%, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+}
+
+html.dark #bg-layer-1 {
+  background: radial-gradient(ellipse 80% 60% at 0% 0%, rgba(82, 168, 122, 0.1) 0%, transparent 65%);
+}
+html.dark #bg-layer-2 {
+  background: radial-gradient(ellipse 60% 60% at 100% 100%, rgba(96, 165, 250, 0.08) 0%, transparent 65%);
+}
+
+/* ── Scroll-reveal system ── */
+
 .js-reveal {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(24px);
   transition:
-    opacity 400ms ease var(--delay, 0ms),
-    transform 400ms ease var(--delay, 0ms);
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
 }
 
-.js-reveal.revealed {
+.js-reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition:
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+}
+
+.js-reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0ms);
+}
+
+.js-reveal.revealed,
+.js-reveal-left.revealed,
+.js-reveal-scale.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js-reveal {
+  .js-reveal,
+  .js-reveal-left,
+  .js-reveal-scale {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
 }
+

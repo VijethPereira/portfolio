@@ -1,80 +1,46 @@
 ---
-// Hero: IDoc-record format — passes 30-second test (who, what, differentiator, CTAs)
+import { Image } from "astro:assets";
+import vijeth from "../assets/vijeth.jpg";
 ---
 
-<section class="flex items-center py-12 lg:py-24 px-6 min-h-[calc(100vh-3.5rem)]">
+<section id="hero" class="relative flex items-center px-6 pt-8 pb-16 lg:pt-0 min-h-dvh overflow-hidden">
+
+  <!-- Dot-grid pattern -->
+  <div
+    class="absolute inset-0 -z-10 opacity-[0.045] pointer-events-none"
+    style="background-image: radial-gradient(circle, var(--color-ink) 1px, transparent 1px); background-size: 28px 28px;"
+    aria-hidden="true"
+  ></div>
+
   <div class="w-full max-w-content mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_22rem] gap-12 lg:gap-20 items-center">
 
-    <!-- Mobile photo: shown above record on small/medium screens -->
-    <div class="lg:hidden flex justify-center mb-8">
-      <div class="border border-line overflow-hidden w-24 h-32">
-        <img
-          src="/vijeth.jpg"
-          alt="Vijeth Pereira"
-          class="w-full h-full object-cover object-top"
-          loading="eager"
-        />
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_17rem] gap-10 lg:gap-16 items-center">
-
-      <!-- Left: IDoc record + CTAs -->
+      <!-- Left: Text -->
       <div>
-        <div
-          class="border border-line bg-surface"
-          role="region"
-          aria-label="Professional record"
-        >
-          <dl class="px-5 sm:px-8 divide-y divide-line">
 
-            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
-              <dt class="font-display text-xs uppercase tracking-widest text-muted self-center">
-                Document Type
-              </dt>
-              <dd class="font-display text-lg sm:text-xl font-semibold text-ink">
-                Senior Integration Engineer
-              </dd>
-            </div>
-
-            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
-              <dt class="font-display text-xs uppercase tracking-widest text-muted self-center">
-                Sender
-              </dt>
-              <dd class="font-display text-lg sm:text-xl font-semibold text-ink">
-                Vijeth Pereira
-              </dd>
-            </div>
-
-            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
-              <dt class="font-display text-xs uppercase tracking-widest text-muted self-start pt-0.5">
-                Status
-              </dt>
-              <dd class="font-display text-sm sm:text-base text-ink leading-snug">
-                <span class="text-posted font-semibold">53 · POSTED</span>
-                <span class="text-muted">
-                  {" "}— Senior Integration Engineer at Henkel · DXV/EDI Customer Integrations Hub · GTC
-                </span>
-              </dd>
-            </div>
-
-            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
-              <dt class="font-display text-xs uppercase tracking-widest text-muted self-start pt-0.5">
-                Segments
-              </dt>
-              <dd class="font-display text-xs sm:text-sm text-muted tracking-wide leading-relaxed">
-                ANSI X12 / EDIFACT / VDA &nbsp;·&nbsp; IDoc &amp; ALE &nbsp;·&nbsp; OpenText GXS &nbsp;·&nbsp; Seeburger B2B &nbsp;·&nbsp; SAP ABAP
-              </dd>
-            </div>
-
-          </dl>
+        <div class="js-reveal" style="--delay: 0ms">
+          <p class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-muted mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-posted flex-shrink-0" aria-hidden="true"></span>
+            53 · Posted · Senior Integration Engineer
+          </p>
         </div>
 
-        <!-- CTAs -->
-        <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <div class="js-reveal" style="--delay: 80ms">
+          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-ink leading-[0.92] tracking-tight">
+            Vijeth<br />Pereira
+          </h1>
+        </div>
+
+        <div class="js-reveal" style="--delay: 160ms">
+          <p class="font-body text-base sm:text-lg text-muted leading-relaxed mt-6 max-w-lg">
+            5+ years keeping Henkel's global B2B EDI integrations reliable. SAP IDoc/ALE, ABAP user exits, OpenText GXS and Seeburger B2B — across WE, NA, CEE, and APAC.
+          </p>
+        </div>
+
+        <div class="js-reveal flex flex-wrap items-center gap-4 mt-10" style="--delay: 240ms">
           <a
             href="#work"
-            class="font-display text-xs font-semibold uppercase tracking-widest bg-posted text-surface px-6 py-3 hover:opacity-90 transition-opacity"
+            class="font-display text-xs font-bold uppercase tracking-widest bg-cta text-white px-7 py-3.5 hover:opacity-90 active:scale-[0.98] transition-all duration-200 cursor-pointer"
           >
             View Work
           </a>
@@ -82,33 +48,91 @@
             href="/resume.pdf"
             target="_blank"
             rel="noopener"
-            class="font-display text-xs font-semibold uppercase tracking-widest border border-ink text-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors"
+            class="font-display text-xs font-bold uppercase tracking-widest border-2 border-ink text-ink px-7 py-3.5 hover:bg-ink hover:text-paper active:scale-[0.98] transition-all duration-200 cursor-pointer"
           >
             Download Resume
           </a>
           <a
             href="#contact"
-            class="font-display text-xs text-muted hover:text-ink underline underline-offset-4 transition-colors"
+            class="font-display text-xs text-muted hover:text-ink underline underline-offset-4 transition-colors duration-200 cursor-pointer"
           >
-            Get in Touch
+            Get in Touch →
           </a>
         </div>
+
+        <!-- Availability strip — clean and professional -->
+        <div class="js-reveal mt-10 pt-8 border-t border-line" style="--delay: 320ms">
+          <p class="font-body text-xs text-muted leading-relaxed">
+            <span class="font-display font-semibold text-ink">5+ Years</span> EDI &amp; SAP Integration
+            &nbsp;·&nbsp;
+            <span class="font-display font-semibold text-ink">Bengaluru, India</span>
+            &nbsp;·&nbsp;
+            Remote-ready
+            &nbsp;·&nbsp;
+            <span class="text-posted font-semibold">Open to new roles</span>
+          </p>
+        </div>
+
       </div>
 
-      <!-- Right: Photo — desktop only (mobile handled above) -->
-      <div class="hidden lg:block flex-shrink-0">
-        <div class="border border-line overflow-hidden w-full aspect-[3/4]">
-          <img
-            src="/vijeth.jpg"
-            alt="Vijeth Pereira"
-            class="w-full h-full object-cover object-top"
-            loading="eager"
-            width="272"
-            height="363"
-          />
+      <!-- Right: Photo — mouse-tracking parallax on desktop -->
+      <div class="js-reveal-scale hidden lg:flex flex-col items-center" style="--delay: 200ms">
+        <div
+          id="photo-float"
+          class="relative w-full"
+          style="transition: transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform;"
+        >
+          <div class="absolute -inset-2 bg-cta opacity-[0.08] -z-10"></div>
+          <div class="overflow-hidden border border-line">
+            <Image
+              src={vijeth}
+              alt="Vijeth Pereira — Senior Integration Engineer"
+              class="w-full aspect-[3/4] object-cover object-top"
+              loading="eager"
+              width="352"
+              height="469"
+            />
+          </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Mobile photo -->
+    <div class="js-reveal-scale lg:hidden flex justify-center mt-12" style="--delay: 280ms">
+      <div class="relative w-32">
+        <div class="absolute -inset-1.5 bg-cta opacity-[0.08] -z-10"></div>
+        <div class="overflow-hidden border border-line w-32 h-40">
+          <Image
+            src={vijeth}
+            alt="Vijeth Pereira"
+            class="w-full h-full object-cover object-top"
+            loading="eager"
+            width="128"
+            height="160"
+          />
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var hero  = document.getElementById("hero");
+    var photo = document.getElementById("photo-float");
+    if (!hero || !photo) return;
+
+    hero.addEventListener("mousemove", function (e) {
+      var r  = hero.getBoundingClientRect();
+      var nx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2); // -1 to 1
+      var ny = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+      photo.style.transform = "translate(" + (nx * 35).toFixed(1) + "px, " + (ny * 22).toFixed(1) + "px)";
+    });
+
+    hero.addEventListener("mouseleave", function () {
+      photo.style.transform = "translate(0px, 0px)";
+    });
+  })();
+</script>

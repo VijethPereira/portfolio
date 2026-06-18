@@ -1,26 +1,25 @@
 ---
-// Section order matches page: Work → About → Skills → Contact (skill priority)
 const links = [
-  { href: "#work",     label: "Work"     },
-  { href: "#about",    label: "About"    },
-  { href: "#skills",   label: "Skills"   },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact",  label: "Contact"  },
+  { href: "#work",       label: "Work"       },
+  { href: "#about",      label: "About"      },
+  { href: "#skills",     label: "Skills"     },
+  { href: "#projects",   label: "Projects"   },
+  { href: "#contact",    label: "Contact"    },
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-surface border-b border-line">
+<header class="sticky top-0 z-50 bg-paper/90 backdrop-blur-sm border-b border-line">
   <nav
     class="max-w-content mx-auto px-6 h-14 flex items-center justify-between"
     aria-label="Site navigation"
   >
 
-    <!-- Name mark -->
+    <!-- Wordmark -->
     <a
       href="/"
-      class="font-display text-sm font-semibold text-ink hover:text-posted transition-colors"
+      class="font-display text-sm font-black uppercase tracking-tight text-ink hover:text-posted transition-colors duration-200 cursor-pointer"
     >
-      VIJETH PEREIRA
+      VP
     </a>
 
     <!-- Desktop links -->
@@ -29,45 +28,40 @@ const links = [
         <li>
           <a
             href={href}
-            class="font-display text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors"
+            class="font-display text-xs font-medium uppercase tracking-widest text-muted hover:text-ink transition-colors duration-200 cursor-pointer"
           >
             {label}
           </a>
         </li>
       ))}
+
       <li>
-        <!-- Dark mode toggle -->
         <button
           id="theme-toggle"
-          class="text-muted hover:text-ink transition-colors p-1"
+          class="text-muted hover:text-ink transition-colors duration-200 p-1 cursor-pointer"
           aria-label="Switch to dark mode"
         >
-          <!-- Moon: shown in light mode -->
           <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
-          <!-- Sun: shown in dark mode -->
           <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
             <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
         </button>
       </li>
+
       <li>
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
-          class="font-display text-xs uppercase tracking-widest border border-ink text-ink px-4 py-1.5 hover:bg-ink hover:text-paper transition-colors"
+          class="font-display text-xs font-bold uppercase tracking-widest bg-cta text-white px-4 py-1.5 hover:opacity-90 transition-opacity duration-200 cursor-pointer"
         >
-          CV
+          Resume
         </a>
       </li>
     </ul>
@@ -76,7 +70,7 @@ const links = [
     <div class="flex md:hidden items-center gap-3">
       <button
         id="theme-toggle-mobile"
-        class="text-muted hover:text-ink transition-colors p-1"
+        class="text-muted hover:text-ink transition-colors duration-200 p-1 cursor-pointer"
         aria-label="Switch to dark mode"
       >
         <svg id="icon-moon-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -84,19 +78,15 @@ const links = [
         </svg>
         <svg id="icon-sun-mobile" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
           <circle cx="12" cy="12" r="5"/>
-          <line x1="12" y1="1" x2="12" y2="3"/>
-          <line x1="12" y1="21" x2="12" y2="23"/>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-          <line x1="1" y1="12" x2="3" y2="12"/>
-          <line x1="21" y1="12" x2="23" y2="12"/>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
       </button>
       <button
         id="nav-toggle"
-        class="font-display text-xs uppercase tracking-widest text-muted hover:text-ink transition-colors"
+        class="font-display text-xs font-medium uppercase tracking-widest text-muted hover:text-ink transition-colors duration-200 cursor-pointer"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Toggle navigation"
@@ -110,14 +100,14 @@ const links = [
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden bg-surface border-t border-line px-6 pb-6"
+    class="hidden md:hidden bg-paper border-t border-line px-6 pb-6"
   >
     <ul class="flex flex-col gap-5 list-none m-0 p-0 pt-5">
       {links.map(({ href, label }) => (
         <li>
           <a
             href={href}
-            class="font-display text-sm uppercase tracking-widest text-muted hover:text-ink transition-colors block"
+            class="font-display text-sm font-medium uppercase tracking-widest text-muted hover:text-ink transition-colors duration-200 block cursor-pointer"
           >
             {label}
           </a>
@@ -128,9 +118,9 @@ const links = [
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
-          class="font-display text-sm uppercase tracking-widest border border-ink text-ink px-5 py-2 inline-block hover:bg-ink hover:text-paper transition-colors"
+          class="font-display text-sm font-bold uppercase tracking-widest bg-cta text-white px-5 py-2.5 inline-block hover:opacity-90 transition-opacity duration-200 cursor-pointer"
         >
-          CV
+          Resume
         </a>
       </li>
     </ul>
@@ -138,7 +128,6 @@ const links = [
 </header>
 
 <script>
-  // --- Mobile nav toggle ---
   const navToggle = document.getElementById("nav-toggle");
   const menu      = document.getElementById("mobile-menu");
 
@@ -155,13 +144,12 @@ const links = [
     })
   );
 
-  // --- Dark mode toggle ---
-  const moonD   = document.getElementById("icon-moon");
-  const sunD    = document.getElementById("icon-sun");
-  const moonM   = document.getElementById("icon-moon-mobile");
-  const sunM    = document.getElementById("icon-sun-mobile");
-  const btnD    = document.getElementById("theme-toggle");
-  const btnM    = document.getElementById("theme-toggle-mobile");
+  const moonD = document.getElementById("icon-moon");
+  const sunD  = document.getElementById("icon-sun");
+  const moonM = document.getElementById("icon-moon-mobile");
+  const sunM  = document.getElementById("icon-sun-mobile");
+  const btnD  = document.getElementById("theme-toggle");
+  const btnM  = document.getElementById("theme-toggle-mobile");
 
   function syncIcons(isDark: boolean) {
     moonD?.classList.toggle("hidden", isDark);
@@ -179,13 +167,7 @@ const links = [
     syncIcons(dark);
   }
 
-  // Sync icon state with current theme on page load
   syncIcons(document.documentElement.classList.contains("dark"));
-
-  btnD?.addEventListener("click", () =>
-    applyTheme(!document.documentElement.classList.contains("dark"))
-  );
-  btnM?.addEventListener("click", () =>
-    applyTheme(!document.documentElement.classList.contains("dark"))
-  );
+  btnD?.addEventListener("click", () => applyTheme(!document.documentElement.classList.contains("dark")));
+  btnM?.addEventListener("click", () => applyTheme(!document.documentElement.classList.contains("dark")));
 </script>
