@@ -1,0 +1,18 @@
+---
+interface Props {
+  label: string;
+  status?: "posted" | "pending";
+}
+const { label, status = "posted" } = Astro.props;
+---
+
+<span class="inline-flex items-center gap-2 font-display text-xs uppercase tracking-wide border border-line bg-surface px-3 py-1.5">
+  <span
+    class:list={[
+      "w-1.5 h-1.5 rounded-full flex-shrink-0",
+      status === "posted" ? "bg-posted" : "bg-pending",
+    ]}
+    aria-hidden="true"
+  />
+  {label}
+</span>

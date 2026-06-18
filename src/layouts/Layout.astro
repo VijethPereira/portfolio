@@ -1,23 +1,94 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Vijeth Pereira — Senior Integration Engineer at Henkel",
+  description = "Senior Integration Engineer at Henkel (DXV/EDI Customer Integrations Hub · GTC) with 5+ years delivering B2B EDI solutions — X12, EDIFACT, SAP IDocs, ALE, OpenText GXS, Seeburger B2B. Based in Bengaluru, India.",
+} = Astro.props;
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vijeth Pereira",
+  "jobTitle": "Senior Integration Engineer",
+  "email": "pereiravijeth@gmail.com",
+  "url": "https://www.linkedin.com/in/vijeth-pereira/",
+  "knowsAbout": ["SAP EDI", "ALE", "IDoc", "ANSI X12", "EDIFACT", "OpenText GXS", "Seeburger B2B", "ABAP"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mangaluru",
+    "addressCountry": "IN",
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Henkel",
+  },
+  "award": ["Accenture Sieger Award — Delivery Champion, February 2023"],
+});
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={jsonLd} />
+    <!-- Theme init — runs before paint to prevent flash -->
+    <script is:inline>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (saved === "dark" || (!saved && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Fixed background pattern — sits behind all content -->
+    <div id="bg-pattern" class="fixed inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
+    <slot />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- Scroll-reveal via IntersectionObserver (§8) — no framework needed -->
+    <script>
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const mark = (el: Element) => el.classList.add("revealed");
+
+      if (reduced) {
+        document.querySelectorAll(".js-reveal").forEach(mark);
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                mark(e.target);
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+        );
+        document.querySelectorAll(".js-reveal").forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

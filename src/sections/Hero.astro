@@ -1,0 +1,114 @@
+---
+// Hero: IDoc-record format — passes 30-second test (who, what, differentiator, CTAs)
+---
+
+<section class="flex items-center py-12 lg:py-24 px-6 min-h-[calc(100vh-3.5rem)]">
+  <div class="w-full max-w-content mx-auto">
+
+    <!-- Mobile photo: shown above record on small/medium screens -->
+    <div class="lg:hidden flex justify-center mb-8">
+      <div class="border border-line overflow-hidden w-24 h-32">
+        <img
+          src="/vijeth.jpg"
+          alt="Vijeth Pereira"
+          class="w-full h-full object-cover object-top"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_17rem] gap-10 lg:gap-16 items-center">
+
+      <!-- Left: IDoc record + CTAs -->
+      <div>
+        <div
+          class="border border-line bg-surface"
+          role="region"
+          aria-label="Professional record"
+        >
+          <dl class="px-5 sm:px-8 divide-y divide-line">
+
+            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
+              <dt class="font-display text-xs uppercase tracking-widest text-muted self-center">
+                Document Type
+              </dt>
+              <dd class="font-display text-lg sm:text-xl font-semibold text-ink">
+                Senior Integration Engineer
+              </dd>
+            </div>
+
+            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
+              <dt class="font-display text-xs uppercase tracking-widest text-muted self-center">
+                Sender
+              </dt>
+              <dd class="font-display text-lg sm:text-xl font-semibold text-ink">
+                Vijeth Pereira
+              </dd>
+            </div>
+
+            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
+              <dt class="font-display text-xs uppercase tracking-widest text-muted self-start pt-0.5">
+                Status
+              </dt>
+              <dd class="font-display text-sm sm:text-base text-ink leading-snug">
+                <span class="text-posted font-semibold">53 · POSTED</span>
+                <span class="text-muted">
+                  {" "}— Senior Integration Engineer at Henkel · DXV/EDI Customer Integrations Hub · GTC
+                </span>
+              </dd>
+            </div>
+
+            <div class="py-5 sm:py-6 grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-y-1 gap-x-8">
+              <dt class="font-display text-xs uppercase tracking-widest text-muted self-start pt-0.5">
+                Segments
+              </dt>
+              <dd class="font-display text-xs sm:text-sm text-muted tracking-wide leading-relaxed">
+                ANSI X12 / EDIFACT / VDA &nbsp;·&nbsp; IDoc &amp; ALE &nbsp;·&nbsp; OpenText GXS &nbsp;·&nbsp; Seeburger B2B &nbsp;·&nbsp; SAP ABAP
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-6 sm:mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a
+            href="#work"
+            class="font-display text-xs font-semibold uppercase tracking-widest bg-posted text-surface px-6 py-3 hover:opacity-90 transition-opacity"
+          >
+            View Work
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener"
+            class="font-display text-xs font-semibold uppercase tracking-widest border border-ink text-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors"
+          >
+            Download Resume
+          </a>
+          <a
+            href="#contact"
+            class="font-display text-xs text-muted hover:text-ink underline underline-offset-4 transition-colors"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Photo — desktop only (mobile handled above) -->
+      <div class="hidden lg:block flex-shrink-0">
+        <div class="border border-line overflow-hidden w-full aspect-[3/4]">
+          <img
+            src="/vijeth.jpg"
+            alt="Vijeth Pereira"
+            class="w-full h-full object-cover object-top"
+            loading="eager"
+            width="272"
+            height="363"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

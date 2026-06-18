@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <!-- Faint grid -->
+  <path d="M0 80 L160 80 M80 0 L80 160" stroke="#15171A" stroke-width="0.5" fill="none"/>
+  <path d="M0 40 L160 40 M0 120 L160 120 M40 0 L40 160 M120 0 L120 160" stroke="#15171A" stroke-width="0.2" fill="none"/>
+  <!-- Circuit traces -->
+  <path d="M0 80 L40 80 L40 40 L80 40" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <path d="M80 40 L120 40 L120 0" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <path d="M80 80 L80 120 L120 120 L120 160" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <path d="M120 80 L160 80" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <path d="M0 120 L40 120" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <!-- Pads at trace junctions (hollow) -->
+  <circle cx="40" cy="80" r="4.5" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <circle cx="80" cy="40" r="4.5" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <circle cx="80" cy="120" r="4.5" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <circle cx="120" cy="80" r="3.5" stroke="#15171A" stroke-width="1.2" fill="none"/>
+  <!-- Filled component markers -->
+  <circle cx="40" cy="120" r="3" fill="#15171A"/>
+  <circle cx="120" cy="40" r="3" fill="#15171A"/>
+  <!-- Corner anchors -->
+  <circle cx="0" cy="0" r="2.5" fill="#15171A"/>
+  <circle cx="160" cy="0" r="2.5" fill="#15171A"/>
+  <circle cx="0" cy="160" r="2.5" fill="#15171A"/>
+  <circle cx="160" cy="160" r="2.5" fill="#15171A"/>
+</svg>

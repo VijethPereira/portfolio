@@ -1,0 +1,68 @@
+---
+import SectionHeading from "../components/SectionHeading.astro";
+import ContactLink from "../components/ContactLink.astro";
+---
+
+<section id="contact" class="py-16 lg:py-24 px-6 border-t border-line">
+  <div class="max-w-content mx-auto">
+
+    <div class="js-reveal">
+      <SectionHeading segment="SEGMENT 06" title="Contact" />
+    </div>
+
+    <div class="js-reveal max-w-xl">
+      <p class="font-body text-base text-ink leading-relaxed mb-8">
+        If you're evaluating SAP EDI/ALE specialists for a new engagement, internal transfer,
+        or consulting opportunity — I'd like to hear about it.
+        Email is fastest; I'm on LinkedIn daily.
+      </p>
+
+      <div class="space-y-3">
+        <!-- Email row with copy button -->
+        <div class="flex items-stretch gap-2">
+          <a
+            href="mailto:pereiravijeth@gmail.com"
+            class="flex items-center gap-4 border border-line px-5 py-4 hover:border-posted transition-colors group flex-1 min-w-0"
+          >
+            <div class="flex-1 min-w-0">
+              <p class="font-display text-sm font-semibold text-ink group-hover:text-posted transition-colors truncate">
+                pereiravijeth@gmail.com
+              </p>
+              <p class="font-body text-xs text-muted mt-0.5">Email — fastest response</p>
+            </div>
+            <span class="font-display text-sm text-muted group-hover:text-posted transition-colors flex-shrink-0" aria-hidden="true">→</span>
+          </a>
+          <button
+            id="copy-email"
+            aria-label="Copy email address"
+            class="border border-line px-4 py-4 font-display text-xs text-muted hover:border-posted hover:text-posted transition-colors flex-shrink-0"
+          >
+            <span id="copy-label">Copy</span>
+          </button>
+        </div>
+
+        <ContactLink
+          href="https://www.linkedin.com/in/vijeth-pereira/"
+          label="linkedin.com/in/vijeth-pereira"
+          sublabel="LinkedIn — open to messages"
+          external={true}
+        />
+      </div>
+
+      <script>
+        const btn = document.getElementById('copy-email');
+        const label = document.getElementById('copy-label');
+        btn?.addEventListener('click', async () => {
+          await navigator.clipboard.writeText('pereiravijeth@gmail.com');
+          if (label) label.textContent = 'Copied!';
+          setTimeout(() => { if (label) label.textContent = 'Copy'; }, 2000);
+        });
+      </script>
+
+      <p class="font-display text-xs text-muted uppercase tracking-widest mt-8">
+        Mangaluru, India &nbsp;·&nbsp; Remote &nbsp;·&nbsp; +91-9972858537
+      </p>
+    </div>
+
+  </div>
+</section>

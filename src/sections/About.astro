@@ -1,0 +1,79 @@
+---
+import SectionHeading from "../components/SectionHeading.astro";
+import Badge from "../components/Badge.astro";
+
+const certs = [
+  "SAP Supply Chain: Learn EDI & IDocs Interface Architecture",
+  "SAP Debugging for Functional Consultants",
+  "Greenfield Training Program on SAP ABAP",
+  "Thriving Together",
+];
+---
+
+<section id="about" class="py-16 lg:py-24 px-6 border-t border-line">
+  <div class="max-w-content mx-auto grid grid-cols-1 lg:grid-cols-[1fr_20rem] gap-10 lg:gap-16 items-start">
+
+    <!-- Narrative -->
+    <div>
+      <div class="js-reveal">
+        <SectionHeading segment="SEGMENT 02" title="About" />
+      </div>
+
+      <div class="js-reveal space-y-4 font-body text-base text-ink leading-relaxed max-w-prose">
+        <p>
+          I'm Vijeth Pereira — a Senior Integration Engineer at Henkel, based in Bengaluru, India.
+          I work in the DXV/EDI Customer Integrations Hub (GTC), keeping Henkel's B2B EDI
+          integrations running reliably across a global trading partner network.
+        </p>
+        <p>
+          With over 5 years in the consumer goods, retail, and manufacturing sectors, I specialise
+          in EDI integration support — X12/ANSI, EDIFACT, VDA — across SAP IDocs, ALE, and
+          middleware platforms (OpenText GXS, Seeburger B2B, GIB). My day-to-day is monitoring
+          document flows, diagnosing failures fast, and making sure the right business teams get
+          accurate information before errors become disruptions.
+        </p>
+        <p>
+          On the technical side I implement mapping changes per customer and business specifications,
+          fix recurring error patterns at the root cause, and resolve SAP IDoc and EDI technical
+          issues — from partner profile configurations to ABAP user exits. My collaborative approach
+          spans business teams, customers, IT, and logistics service providers across WE, CEE, NA,
+          LA, and APAC.
+        </p>
+        <p class="font-display text-xs text-muted uppercase tracking-wide pt-2">
+          Bengaluru / Mangaluru, India &nbsp;·&nbsp; Remote &nbsp;·&nbsp; English · Kannada · Konkani · Hindi
+        </p>
+      </div>
+    </div>
+
+    <!-- Recognition + Certifications (social proof) -->
+    <div class="space-y-8">
+
+      <div class="js-reveal space-y-3">
+        <p class="font-display text-xs text-muted uppercase tracking-widest">Recognition</p>
+        <Badge
+          label="Henkel Sieger Award"
+          sublabel="Delivery Champion · Henkel"
+        />
+        <Badge
+          label="Accenture Recognition Award"
+          sublabel="Zero-escalation ticket resolution + North America shift coverage"
+        />
+        <Badge
+          label="Multiple Client Appreciations"
+          sublabel="Complex issue resolution with minimal business impact across WE, NA, and APAC"
+        />
+      </div>
+
+      <div class="js-reveal space-y-3">
+        <p class="font-display text-xs text-muted uppercase tracking-widest">Certifications</p>
+        {certs.map((cert) => (
+          <div class="border border-line bg-surface px-4 py-3">
+            <p class="font-display text-xs text-ink leading-snug">{cert}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

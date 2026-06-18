@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import SectionHeading from "../components/SectionHeading.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+
+const entries = await getCollection("work");
+---
+
+<section id="work" class="py-16 lg:py-24 px-6 border-t border-line">
+  <div class="max-w-content mx-auto">
+
+    <div class="js-reveal">
+      <SectionHeading segment="SEGMENT 01" title="Selected Work" />
+    </div>
+
+    <!-- Case study cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {entries.map((entry, i) => (
+        <div class="js-reveal" style={`--delay: ${i * 80}ms`}>
+          <CaseStudyCard entry={entry} />
+        </div>
+      ))}
+    </div>
+
+    <!-- Secondary CTA after projects — skill requirement -->
+    <div class="js-reveal border-t border-line pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <p class="font-display text-sm font-semibold text-ink">
+          See something relevant to your team?
+        </p>
+        <p class="font-body text-sm text-muted mt-1">
+          Available for new integration projects, engagement extensions, and internal mobility.
+        </p>
+      </div>
+      <a
+        href="#contact"
+        class="font-display text-xs font-semibold uppercase tracking-widest border border-ink text-ink px-6 py-3 hover:bg-ink hover:text-paper transition-colors flex-shrink-0"
+      >
+        Let's Talk
+      </a>
+    </div>
+
+  </div>
+</section>

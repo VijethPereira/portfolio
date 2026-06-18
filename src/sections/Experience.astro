@@ -1,0 +1,110 @@
+---
+import SectionHeading from "../components/SectionHeading.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+---
+
+<section id="experience" class="py-16 lg:py-24 px-6 border-t border-line">
+  <div class="max-w-content mx-auto">
+
+    <div class="js-reveal">
+      <SectionHeading segment="SEGMENT 04" title="Experience" />
+    </div>
+
+    <div class="space-y-10 lg:space-y-16">
+
+      <!-- Henkel — current direct employer -->
+      <div class="js-reveal">
+        <TimelineItem
+          period="Jun 2025 — Present"
+          role="Senior Integration Engineer"
+          company="Henkel · Bengaluru, India"
+          sublabel="DXV/EDI Customer Integrations Hub — GTC"
+          bullets={[
+            "Monitor EDI document flows across Henkel's global trading partner network via OpenText GXS, Seeburger B2B, and GIB tracking portals; analyse middleware failures and resolve errors in orders, shipments, and invoices before they escalate into business disruptions.",
+            "Implement EDI map changes at middleware level per customer and business specifications; apply IDoc and EDI user exit fixes in SAP to resolve technical integration issues.",
+            "Coordinate with business teams, customers, and IT stakeholders on incident resolution and root-cause analysis across WE, CEE, NA, LA, and APAC trading partner network.",
+          ]}
+        />
+      </div>
+
+      <!-- Accenture Senior Analyst -->
+      <div class="js-reveal" style="--delay: 60ms">
+        <TimelineItem
+          period="Dec 2023 — Jun 2025"
+          role="Packaged App Development Senior Analyst"
+          company="Accenture Services Pvt. Ltd · Bengaluru, India"
+          sublabel="Client: Henkel International GmbH, Germany — FMO EDI Maintenance"
+          bullets={[
+            "Maintained EDI integrations via OpenText GXS: updated and managed 850, 856, 810, and XML mapping logic; resolved P1/P2 middleware incidents within SLA across WE, CEE, NA, LA, and APAC.",
+            "Acted as SME for GXS mapping and translation requirements; led knowledge transfer and capability building for the EDI maintenance team.",
+            "Designed monitoring workflows covering message exchange tracking, error handling, and FTP/SFTP connectivity oversight for business and IT stakeholders.",
+            "Maintained partner profiles, ports, and RFC destinations in SAP to facilitate IDoc routing to middleware platforms.",
+          ]}
+        />
+      </div>
+
+      <!-- Accenture Analyst -->
+      <div class="js-reveal" style="--delay: 80ms">
+        <TimelineItem
+          period="Dec 2021 — Nov 2023"
+          role="Packaged App Development Analyst"
+          company="Accenture Services Pvt. Ltd · Bengaluru, India"
+          sublabel="Client: Henkel International GmbH, Germany — FMO EDI Maintenance"
+          bullets={[
+            "Maintained EDI integrations via Seeburger B2B and GIB; resolved trading partner document exchange issues and implemented mapping changes per customer and business requests.",
+            "Maintained partner profiles, ports, and RFC destinations in SAP to route IDocs to Seeburger, OpenText, and GIB middleware platforms.",
+            "Conducted post-maintenance weekend testing and message validation to ensure EDI system availability and mapping accuracy.",
+          ]}
+        />
+      </div>
+
+      <!-- Accenture Associate -->
+      <div class="js-reveal" style="--delay: 100ms">
+        <TimelineItem
+          period="Dec 2019 — Nov 2021"
+          role="Packaged App Development Associate"
+          company="Accenture Services Pvt. Ltd · Bengaluru, India"
+          sublabel="Client: Henkel International GmbH, Germany — FMO EDI Maintenance"
+          bullets={[
+            "Monitored EDI and IDoc flows in Henkel's productive SAP environment; resolved integration errors via ServiceNow within defined SLA targets.",
+            "Maintained trading partner profiles and activity tracking documentation to support EDI operations.",
+          ]}
+        />
+      </div>
+
+      <!-- Impelsys Internship -->
+      <div class="js-reveal" style="--delay: 120ms">
+        <TimelineItem
+          period="Jul 2018 — Aug 2018"
+          role="Intern"
+          company="Impelsys · Mangaluru, India"
+          bullets={[
+            "Two-month internship during final year of engineering; gained foundational exposure to enterprise software systems.",
+          ]}
+        />
+      </div>
+
+      <!-- Education -->
+      <div class="js-reveal border-t border-line pt-8 lg:pt-12">
+        <p class="font-display text-xs text-muted uppercase tracking-widest mb-6">Education</p>
+        <div class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-x-8 gap-y-1">
+            <p class="font-display text-xs text-muted uppercase tracking-widest">2015 – 2019</p>
+            <div>
+              <p class="font-display text-sm font-semibold text-ink">B.E. Computer Science &amp; Engineering</p>
+              <p class="font-body text-sm text-muted">Yenepoya Institute of Technology · Mangaluru, India</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[14rem_1fr] gap-x-8 gap-y-1">
+            <p class="font-display text-xs text-muted uppercase tracking-widest">2013 – 2015</p>
+            <div>
+              <p class="font-display text-sm font-semibold text-ink">PUC — PCMC</p>
+              <p class="font-body text-sm text-muted">St. Raymonds College · Vamanjoor, Mangaluru</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+}
+
+const { entry } = Astro.props;
+const { title, challenge, approach, outcome, status } = entry.data;
+---
+
+<article class="border border-line bg-surface flex flex-col h-full hover:border-posted transition-colors duration-200 group">
+
+  <!-- Status bar -->
+  <div class="border-b border-line px-6 py-3 flex items-center gap-2">
+    <span
+      class:list={[
+        "w-1.5 h-1.5 rounded-full flex-shrink-0",
+        status === "posted" ? "bg-posted" : "bg-pending",
+      ]}
+      aria-hidden="true"
+    />
+    <span class="font-display text-xs uppercase tracking-widest text-muted">
+      {status}
+    </span>
+  </div>
+
+  <!-- Body -->
+  <div class="p-6 flex flex-col gap-5 flex-1">
+    <h3 class="font-display text-sm font-semibold text-ink group-hover:text-posted transition-colors leading-snug">
+      {title}
+    </h3>
+
+    <dl class="space-y-4 flex-1">
+      <div>
+        <dt class="font-display text-xs text-muted uppercase tracking-widest mb-1.5">Challenge</dt>
+        <dd class="font-body text-sm text-ink leading-relaxed">{challenge}</dd>
+      </div>
+      <div>
+        <dt class="font-display text-xs text-muted uppercase tracking-widest mb-1.5">Approach</dt>
+        <dd class="font-body text-sm text-ink leading-relaxed">{approach}</dd>
+      </div>
+      <div>
+        <dt class="font-display text-xs text-muted uppercase tracking-widest mb-1.5">Outcome</dt>
+        <dd class="font-body text-sm font-medium text-posted leading-relaxed">{outcome}</dd>
+      </div>
+    </dl>
+  </div>
+
+</article>

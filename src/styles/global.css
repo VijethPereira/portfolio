@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for dark: prefix */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Semantic color system — maps to IDoc status vocabulary */
+  --color-paper: #F2F3F1;
+  --color-surface: #FBFBFA;
+  --color-ink: #15171A;
+  --color-muted: #5B5F63;
+  --color-line: #D9DBD7;
+  --color-posted: #2F6B4F;   /* posted = successfully processed */
+  --color-pending: #8F6315;  /* pending = still in progress    */
+
+  /* One family, two cuts */
+  --font-display: "IBM Plex Mono", monospace;
+  --font-body: "IBM Plex Sans", sans-serif;
+
+  --max-width-content: 72rem;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: "IBM Plex Sans", sans-serif;
+    scroll-behavior: smooth;
+    /* Smooth theme transition — only on toggle, not on initial paint */
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2F6B4F;
+    outline-offset: 2px;
+  }
+}
+
+/* Atmospheric gradient background — brand green top-left, amber bottom-right */
+#bg-pattern {
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(47, 107, 79, 0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 70% at 100% 100%, rgba(143, 99, 21, 0.16) 0%, transparent 65%);
+}
+
+html.dark #bg-pattern {
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 0%, rgba(82, 168, 122, 0.16) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 70% at 100% 100%, rgba(196, 146, 46, 0.11) 0%, transparent 65%);
+}
+
+/* Dark mode — override all color tokens when .dark is on <html> */
+html.dark {
+  --color-paper: #111318;
+  --color-surface: #1C1F26;
+  --color-ink: #EAEAE8;
+  --color-muted: #7A7E85;
+  --color-line: #2C2F38;
+  --color-posted: #52A87A;
+  --color-pending: #C4922E;
+}
+
+/* Scroll-reveal — IntersectionObserver adds .revealed (§8) */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 400ms ease var(--delay, 0ms),
+    transform 400ms ease var(--delay, 0ms);
+}
+
+.js-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
