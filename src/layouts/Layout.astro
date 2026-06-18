@@ -69,13 +69,23 @@ const jsonLd = JSON.stringify({
     </script>
   </head>
   <body>
-    <!-- Parallax background — 3 depth layers controlled by JS -->
+    <!-- Skip link — keyboard accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:z-[200] focus:top-4 focus:left-4 focus:px-5 focus:py-3 focus:bg-cta focus:text-white focus:font-display focus:text-sm focus:font-bold focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Ambient background -->
     <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none">
       <div id="bg-layer-1" class="absolute inset-0"></div>
       <div id="bg-layer-2" class="absolute inset-0"></div>
     </div>
 
-    <slot />
+    <main id="main-content">
+      <slot />
+    </main>
 
     <script>
       // ── Scroll-reveal (IntersectionObserver) ──
