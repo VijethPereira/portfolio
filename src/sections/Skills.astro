@@ -103,11 +103,13 @@ const rest     = groups.filter(g => !g.featured);
     <!-- Secondary groups -->
     <div class="space-y-8 pt-6 border-t border-line">
       {rest.map((group, gi) => (
-        <div class="js-reveal" style={`--delay: ${gi * 60}ms`}>
-          <p class="font-display text-xs font-medium text-muted uppercase tracking-widest mb-3">{group.title}</p>
+        <div>
+          <p class="js-reveal font-display text-xs font-medium text-muted uppercase tracking-widest mb-3" style={`--delay: ${gi * 80}ms`}>{group.title}</p>
           <div class="flex flex-wrap gap-2">
-            {group.skills.map((s) => (
-              <SkillTag label={s.label} status={s.status} />
+            {group.skills.map((s, si) => (
+              <span class="js-reveal-scale inline-block" style={`--delay: ${gi * 80 + 40 + si * 55}ms`}>
+                <SkillTag label={s.label} status={s.status} />
+              </span>
             ))}
           </div>
         </div>

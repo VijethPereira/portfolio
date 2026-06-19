@@ -69,6 +69,9 @@ const jsonLd = JSON.stringify({
     </script>
   </head>
   <body>
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
     <!-- Skip link — keyboard accessibility -->
     <a
       href="#main-content"
@@ -91,7 +94,7 @@ const jsonLd = JSON.stringify({
       // ── Scroll-reveal (IntersectionObserver) ──
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const mark = (el: Element) => el.classList.add("revealed");
-      const selectors = ".js-reveal, .js-reveal-left, .js-reveal-scale";
+      const selectors = ".js-reveal, .js-reveal-left, .js-reveal-scale, .js-reveal-up";
 
       if (reduced) {
         document.querySelectorAll(selectors).forEach(mark);
@@ -110,6 +113,32 @@ const jsonLd = JSON.stringify({
         document.querySelectorAll(selectors).forEach((el) => observer.observe(el));
       }
 
+      // ── Scroll progress bar ──
+      const progressBar = document.getElementById("scroll-progress");
+      function updateProgress() {
+        if (!progressBar) return;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = total > 0 ? `${(window.scrollY / total) * 100}%` : "0%";
+      }
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // ── Nav active section tracking ──
+      const navLinks = document.querySelectorAll<HTMLElement>("[data-nav-link]");
+      if (navLinks.length > 0) {
+        const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
+        function updateActiveNav() {
+          const trigger = window.scrollY + window.innerHeight * 0.38;
+          let activeId: string | null = null;
+          for (const s of sections) {
+            if (s.offsetTop <= trigger) activeId = s.id;
+          }
+          navLinks.forEach((l) => {
+            l.classList.toggle("nav-active", l.getAttribute("href") === `#${activeId}`);
+          });
+        }
+        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        updateActiveNav();
+      }
     </script>
   </body>
 </html>

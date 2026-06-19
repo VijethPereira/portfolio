@@ -28,6 +28,7 @@ const links = [
         <li>
           <a
             href={href}
+            data-nav-link
             class="font-display text-xs font-medium uppercase tracking-widest text-muted hover:text-ink transition-colors duration-200 cursor-pointer"
           >
             {label}
@@ -134,7 +135,14 @@ const links = [
   navToggle?.addEventListener("click", () => {
     const open = navToggle.getAttribute("aria-expanded") === "true";
     navToggle.setAttribute("aria-expanded", String(!open));
-    menu?.classList.toggle("hidden");
+    if (!open) {
+      menu?.classList.remove("hidden");
+      menu?.classList.remove("menu-slide");
+      void (menu as HTMLElement | null)?.offsetHeight; // force reflow to restart animation
+      menu?.classList.add("menu-slide");
+    } else {
+      menu?.classList.add("hidden");
+    }
   });
 
   menu?.querySelectorAll("a").forEach((a) =>
