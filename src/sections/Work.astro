@@ -6,34 +6,31 @@ import CaseStudyCard from "../components/CaseStudyCard.astro";
 const entries = await getCollection("work");
 ---
 
-<section id="work" class="py-16 lg:py-24 px-6 border-t border-line">
+<section id="work" class="border-t border-line px-6" style="padding-top:clamp(48px,7vw,88px); padding-bottom:clamp(48px,7vw,88px);">
   <div class="max-w-content mx-auto">
 
     <div class="js-reveal">
-      <SectionHeading segment="WE02 — IDoc List" title="Selected Work" />
+      <SectionHeading segment="SEGMENT 04 — WE02 · IDoc List" title="Selected Work" number="04" />
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+    <div class="grid gap-5" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); margin-bottom:clamp(32px,5vw,56px);">
       {entries.map((entry, i) => (
-        <div class="js-reveal-scale" style={`--delay: ${i * 80}ms`}>
+        <div class="js-reveal-scale" style={`--delay:${i * 80}ms`}>
           <CaseStudyCard entry={entry} />
         </div>
       ))}
     </div>
 
-    <!-- Secondary CTA -->
-    <div class="js-reveal border-t border-line pt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+    <!-- CTA -->
+    <div class="js-reveal border-t border-line flex flex-wrap items-center justify-between gap-5" style="padding-top:32px;">
       <div>
-        <p class="font-display text-sm font-bold text-ink">
-          See something relevant to your team?
-        </p>
-        <p class="font-body text-sm text-muted mt-1">
-          Available for new integration projects, engagement extensions, and internal mobility.
-        </p>
+        <p class="font-display font-bold text-ink" style="font-size:14px; margin:0;">See something relevant to your team?</p>
+        <p class="font-body text-muted" style="font-size:13.5px; margin:6px 0 0;">Available for new integration projects, engagement extensions, and internal mobility.</p>
       </div>
       <a
         href="#contact"
-        class="font-display text-xs font-bold uppercase tracking-widest bg-cta text-white px-7 py-3.5 hover:opacity-90 transition-opacity duration-200 flex-shrink-0 cursor-pointer"
+        class="font-display text-white bg-cta hover:opacity-90 transition-opacity duration-200 flex-shrink-0 cursor-pointer"
+        style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; padding:14px 26px;"
       >
         Let's Talk
       </a>

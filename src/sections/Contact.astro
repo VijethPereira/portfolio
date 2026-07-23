@@ -1,68 +1,75 @@
 ---
 import SectionHeading from "../components/SectionHeading.astro";
-import ContactLink from "../components/ContactLink.astro";
 ---
 
-<section id="contact" class="py-16 lg:py-24 px-6 border-t border-line">
+<section id="contact" class="border-t border-line px-6" style="padding-top:clamp(48px,7vw,88px); padding-bottom:clamp(48px,7vw,88px);">
   <div class="max-w-content mx-auto">
 
     <div class="js-reveal">
-      <SectionHeading segment="WE19 — Test IDoc" title="Let's Work Together" />
+      <SectionHeading segment="SEGMENT 06 — WE19 · Test IDoc" title="Let's Work Together" number="06" />
     </div>
 
-    <div class="js-reveal max-w-xl">
-      <p class="font-body text-base text-ink leading-relaxed mb-10">
+    <div class="js-reveal" style="--delay:80ms; max-width:520px;">
+      <p class="font-body text-ink" style="font-size:15px; line-height:1.7; margin:0 0 32px;">
         If you're evaluating SAP EDI/ALE specialists for a new engagement, internal transfer,
         or consulting opportunity — I'd like to hear about it.
         Email is fastest; I'm on LinkedIn daily.
       </p>
 
-      <div class="space-y-3">
-        <!-- Email — primary CTA -->
+      <div class="flex flex-col gap-3">
+        <!-- Email -->
         <div class="flex items-stretch gap-2">
           <a
             href="mailto:pereiravijeth@gmail.com"
-            class="group flex items-center gap-4 bg-cta text-white px-5 py-4 hover:opacity-90 transition-opacity duration-200 flex-1 min-w-0 cursor-pointer"
+            class="flex items-center gap-4 bg-cta text-white hover:opacity-90 transition-opacity duration-200 flex-1 min-w-0 cursor-pointer"
+            style="padding:16px 20px;"
           >
-            <div class="flex-1 min-w-0">
-              <p class="font-display text-sm font-bold leading-tight truncate">
-                pereiravijeth@gmail.com
-              </p>
-              <p class="font-body text-xs opacity-80 mt-0.5">Email — fastest response</p>
-            </div>
-            <span class="font-display text-base flex-shrink-0" aria-hidden="true">→</span>
+            <span class="flex-1 min-w-0">
+              <span class="block font-display font-bold" style="font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">pereiravijeth@gmail.com</span>
+              <span class="block font-body opacity-85" style="font-size:11px; margin-top:2px;">Email — fastest response</span>
+            </span>
+            <span class="flex-shrink-0" aria-hidden="true">→</span>
           </a>
           <button
             id="copy-email"
             aria-label="Copy email address"
-            class="border border-line bg-surface px-4 py-4 font-display text-xs font-medium text-muted hover:border-posted hover:text-posted transition-colors duration-200 flex-shrink-0 cursor-pointer"
+            class="border border-line bg-surface font-display text-muted hover:border-posted hover:text-posted transition-colors duration-200 flex-shrink-0 cursor-pointer"
+            style="font-size:11px; font-weight:500; padding:0 18px;"
           >
             <span id="copy-label">Copy</span>
           </button>
         </div>
 
-        <ContactLink
+        <!-- LinkedIn -->
+        <a
           href="https://www.linkedin.com/in/vijeth-pereira/"
-          label="linkedin.com/in/vijeth-pereira"
-          sublabel="LinkedIn — open to messages"
-          external={true}
-        />
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 border border-line hover:border-cta transition-colors duration-200 cursor-pointer"
+          style="padding:16px 20px;"
+        >
+          <span class="flex-1 min-w-0">
+            <span class="block font-display font-semibold text-ink" style="font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">linkedin.com/in/vijeth-pereira</span>
+            <span class="block font-body text-muted" style="font-size:11px; margin-top:2px;">LinkedIn — open to messages</span>
+          </span>
+          <span class="flex-shrink-0 text-muted" aria-hidden="true">→</span>
+        </a>
       </div>
 
-      <script>
-        const btn   = document.getElementById("copy-email");
-        const label = document.getElementById("copy-label");
-        btn?.addEventListener("click", async () => {
-          await navigator.clipboard.writeText("pereiravijeth@gmail.com");
-          if (label) label.textContent = "Copied!";
-          setTimeout(() => { if (label) label.textContent = "Copy"; }, 2000);
-        });
-      </script>
-
-      <p class="font-display text-xs text-muted uppercase tracking-widest mt-10">
+      <p class="font-display text-muted uppercase" style="font-size:11px; letter-spacing:.08em; margin:32px 0 0;">
         Bengaluru, India &nbsp;·&nbsp; Remote &nbsp;·&nbsp; +91-9972858537
       </p>
     </div>
 
   </div>
 </section>
+
+<script>
+  const btn   = document.getElementById("copy-email");
+  const label = document.getElementById("copy-label");
+  btn?.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText("pereiravijeth@gmail.com"); } catch (e) {}
+    if (label) label.textContent = "Copied!";
+    setTimeout(() => { if (label) label.textContent = "Copy"; }, 2000);
+  });
+</script>

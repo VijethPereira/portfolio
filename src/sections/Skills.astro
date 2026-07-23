@@ -23,6 +23,7 @@ const groups = [
       { label: "EDI User Exits", status: "posted" as const },
       { label: "Enhancement CRs", status: "posted" as const },
       { label: "VOE2 / VOE4 / NACE", status: "posted" as const },
+      { label: "SAP ABAP (Deepening)", status: "pending" as const },
     ],
   },
   {
@@ -54,6 +55,7 @@ const groups = [
       { label: "GIB", status: "posted" as const },
       { label: "RFC / FTP / SFTP", status: "posted" as const },
       { label: "VANs / WANs", status: "posted" as const },
+      { label: "SAP CPI", status: "pending" as const },
     ],
   },
   {
@@ -64,33 +66,45 @@ const groups = [
       { label: "SAP Job Scheduling (SM37)", status: "posted" as const },
     ],
   },
+  {
+    title: "Languages",
+    featured: false,
+    skills: [
+      { label: "English", status: "posted" as const },
+      { label: "Kannada", status: "posted" as const },
+      { label: "Hindi", status: "posted" as const },
+      { label: "Konkani", status: "posted" as const },
+      { label: "German (A1→A2)", status: "pending" as const },
+    ],
+  },
 ];
 
 const featured = groups.filter(g => g.featured);
 const rest     = groups.filter(g => !g.featured);
 ---
 
-<section id="skills" class="py-16 lg:py-24 px-6 border-t border-line">
+<section id="skills" class="border-t border-line px-6" style="padding-top:clamp(48px,7vw,88px); padding-bottom:clamp(48px,7vw,88px);">
   <div class="max-w-content mx-auto">
 
     <div class="js-reveal">
-      <SectionHeading segment="BD10 — Master Data" title="Skills" />
+      <SectionHeading segment="SEGMENT 02 — BD10 · Master Data" title="Skills" number="02" />
     </div>
 
-    <div class="js-reveal flex items-center gap-6 mb-12">
-      <span class="inline-flex items-center gap-2 font-display text-xs font-medium text-muted uppercase tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-posted" aria-hidden="true" /> Active
+    <!-- Legend -->
+    <div class="flex items-center gap-6" style="margin-bottom:32px;">
+      <span class="inline-flex items-center gap-2 font-display text-muted uppercase" style="font-size:11px; font-weight:500; letter-spacing:.1em;">
+        <span class="rounded-full bg-posted" style="width:7px; height:7px;" aria-hidden="true"></span>Active
       </span>
-      <span class="inline-flex items-center gap-2 font-display text-xs font-medium text-muted uppercase tracking-widest">
-        <span class="w-2 h-2 rounded-full bg-pending" aria-hidden="true" /> Developing
+      <span class="inline-flex items-center gap-2 font-display text-muted uppercase" style="font-size:11px; font-weight:500; letter-spacing:.1em;">
+        <span class="rounded-full bg-pending" style="width:7px; height:7px;" aria-hidden="true"></span>Developing
       </span>
     </div>
 
-    <!-- Featured SAP groups — bento cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-      {featured.map((group, gi) => (
-        <div class="js-reveal-scale border border-line bg-surface p-6 hover:border-cta transition-colors duration-300" style={`--delay: ${gi * 80}ms`}>
-          <p class="font-display text-xs font-semibold text-cta uppercase tracking-widest mb-4">{group.title}</p>
+    <!-- Featured bento grid -->
+    <div class="js-reveal grid gap-4" style="--delay:80ms; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-bottom:16px;">
+      {featured.map((group) => (
+        <div class="border border-line bg-surface hover:border-cta transition-colors duration-300" style="padding:24px;">
+          <p class="font-display font-semibold text-cta uppercase" style="font-size:11px; letter-spacing:.12em; margin:0 0 16px;">{group.title}</p>
           <div class="flex flex-wrap gap-2">
             {group.skills.map((s) => (
               <SkillTag label={s.label} status={s.status} />
@@ -101,15 +115,13 @@ const rest     = groups.filter(g => !g.featured);
     </div>
 
     <!-- Secondary groups -->
-    <div class="space-y-8 pt-6 border-t border-line">
-      {rest.map((group, gi) => (
+    <div class="js-reveal flex flex-col gap-6 border-t border-line" style="--delay:140ms; padding-top:24px;">
+      {rest.map((group) => (
         <div>
-          <p class="js-reveal font-display text-xs font-medium text-muted uppercase tracking-widest mb-3" style={`--delay: ${gi * 80}ms`}>{group.title}</p>
+          <p class="font-display text-muted uppercase" style="font-size:11px; font-weight:500; letter-spacing:.1em; margin:0 0 10px;">{group.title}</p>
           <div class="flex flex-wrap gap-2">
-            {group.skills.map((s, si) => (
-              <span class="js-reveal-scale inline-block" style={`--delay: ${gi * 80 + 40 + si * 55}ms`}>
-                <SkillTag label={s.label} status={s.status} />
-              </span>
+            {group.skills.map((s) => (
+              <SkillTag label={s.label} status={s.status} />
             ))}
           </div>
         </div>

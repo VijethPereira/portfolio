@@ -3,135 +3,148 @@ import { Image } from "astro:assets";
 import vijeth from "../assets/vijeth.jpg";
 ---
 
-<section id="hero" class="relative flex items-center px-6 pt-8 pb-16 lg:pt-0 min-h-dvh overflow-hidden">
+<section
+  id="hero"
+  class="relative px-6"
+  style="max-width:1152px; margin:0 auto; padding-top:clamp(48px,8vw,96px); padding-bottom:clamp(48px,6vw,72px); display:flex; flex-wrap:wrap; gap:clamp(32px,5vw,64px); align-items:center;"
+  id="hero-section"
+>
 
-  <!-- Dot-grid pattern -->
-  <div
-    class="absolute inset-0 -z-10 opacity-[0.045] pointer-events-none"
-    style="background-image: radial-gradient(circle, var(--color-ink) 1px, transparent 1px); background-size: 28px 28px;"
-    aria-hidden="true"
-  ></div>
+  <!-- Left: Text content -->
+  <div style="flex:1 1 480px; min-width:0;">
 
-  <div class="w-full max-w-content mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_22rem] gap-12 lg:gap-20 items-center">
+    <!-- PA20 tag -->
+    <div class="js-reveal" style="--delay:0ms">
+      <p class="font-display font-semibold text-cta uppercase" style="font-size:11px; letter-spacing:.16em; margin:0 0 20px;">
+        PA20 — Display Personnel Record
+      </p>
+    </div>
 
-      <!-- Left: Text -->
-      <div>
+    <!-- IDoc-style record card -->
+    <div class="js-reveal border border-line bg-surface" style="--delay:60ms">
 
-        <div class="js-reveal" style="--delay: 0ms">
-          <p class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-muted mb-6">
-            <span class="w-1.5 h-1.5 rounded-full bg-posted flex-shrink-0 dot-pulse" aria-hidden="true"></span>
-            53 · Posted · Senior Integration Engineer
-          </p>
-        </div>
-
-        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-ink tracking-tight">
-          <span class="block overflow-hidden pb-1">
-            <span class="js-reveal-up block leading-[0.94]" style="--delay: 80ms">Vijeth</span>
-          </span>
-          <span class="block overflow-hidden pb-1">
-            <span class="js-reveal-up block leading-[0.94]" style="--delay: 240ms">Pereira</span>
-          </span>
-        </h1>
-
-        <div class="js-reveal" style="--delay: 160ms">
-          <p class="font-body text-base sm:text-lg text-muted leading-relaxed mt-6 max-w-lg">
-            5+ years keeping Henkel's global B2B EDI integrations reliable. SAP IDoc/ALE, ABAP user exits, OpenText GXS and Seeburger B2B — across WE, NA, CEE, and APAC.
-          </p>
-        </div>
-
-        <div class="js-reveal flex flex-wrap items-center gap-4 mt-10" style="--delay: 240ms">
-          <a
-            href="#work"
-            class="font-display text-xs font-bold uppercase tracking-widest bg-cta text-white px-7 py-3.5 hover:opacity-90 active:scale-[0.98] transition-all duration-200 cursor-pointer btn-shimmer"
-          >
-            View Work
-          </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener"
-            class="font-display text-xs font-bold uppercase tracking-widest border-2 border-ink text-ink px-7 py-3.5 hover:bg-ink hover:text-paper active:scale-[0.98] transition-all duration-200 cursor-pointer"
-          >
-            Download Resume
-          </a>
-          <a
-            href="#contact"
-            class="font-display text-xs text-muted hover:text-ink underline underline-offset-4 transition-colors duration-200 cursor-pointer"
-          >
-            Get in Touch →
-          </a>
-        </div>
-
-        <!-- Availability strip — clean and professional -->
-        <div class="js-reveal mt-10 pt-8 border-t border-line" style="--delay: 320ms">
-          <p class="font-body text-xs text-muted leading-relaxed">
-            <span class="font-display font-semibold text-ink">5+ Years</span> EDI &amp; SAP Integration
-            &nbsp;·&nbsp;
-            <span class="font-display font-semibold text-ink">Bengaluru, India</span>
-            &nbsp;·&nbsp;
-            Remote-ready
-            &nbsp;·&nbsp;
-            <span class="text-posted font-semibold">Open to new roles</span>
-          </p>
-        </div>
-
+      <!-- Row 1: Document Type -->
+      <div class="flex flex-wrap items-center border-b border-line px-5" style="gap:6px 20px; padding-top:18px; padding-bottom:18px;">
+        <span class="font-display text-muted uppercase flex-shrink-0" style="font-size:11px; font-weight:600; letter-spacing:.1em; flex:0 0 9rem;">Document Type</span>
+        <span class="font-display text-ink" style="font-size:15px; font-weight:600; flex:1 1 220px;">SAP Integration Engineer</span>
       </div>
 
-      <!-- Right: Photo — mouse-tracking parallax on desktop -->
-      <div class="js-reveal-scale hidden lg:flex flex-col items-center" style="--delay: 200ms">
-        <div
-          id="photo-float"
-          class="relative w-full"
-          style="transition: transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform;"
-        >
-          <div class="absolute -inset-2 bg-cta opacity-[0.08] -z-10"></div>
-          <div class="overflow-hidden border border-line">
-            <Image
-              src={vijeth}
-              alt="Vijeth Pereira — Senior Integration Engineer"
-              class="w-full aspect-[3/4] object-cover object-top"
-              loading="eager"
-              width="352"
-              height="469"
-            />
-          </div>
-        </div>
+      <!-- Row 2: Sender (name) -->
+      <div class="flex flex-wrap items-center border-b border-line px-5" style="gap:6px 20px; padding-top:18px; padding-bottom:18px;">
+        <span class="font-display text-muted uppercase flex-shrink-0" style="font-size:11px; font-weight:600; letter-spacing:.1em; flex:0 0 9rem;">Sender</span>
+        <span class="font-display text-ink" style="font-size:clamp(1.5rem,3.4vw,2.25rem); font-weight:700; letter-spacing:-.01em; line-height:1.05; flex:1 1 220px;">Vijeth Pereira</span>
+      </div>
+
+      <!-- Row 3: Status -->
+      <div class="flex flex-wrap items-center border-b border-line px-5" style="gap:6px 20px; padding-top:18px; padding-bottom:18px;">
+        <span class="font-display text-muted uppercase flex-shrink-0" style="font-size:11px; font-weight:600; letter-spacing:.1em; flex:0 0 9rem;">Status</span>
+        <span class="font-display text-ink" style="font-size:13px; line-height:1.6; flex:1 1 220px;">
+          <span class="inline-block rounded-full bg-posted dot-pulse" style="width:7px; height:7px; margin-right:10px; vertical-align:middle;" aria-hidden="true"></span>
+          53 &nbsp;·&nbsp; <span class="text-posted font-bold">POSTED</span> — actively building, open to new systems
+        </span>
+      </div>
+
+      <!-- Row 4: Segments -->
+      <div class="flex flex-wrap items-center px-5" style="gap:6px 20px; padding-top:18px; padding-bottom:18px;">
+        <span class="font-display text-muted uppercase flex-shrink-0" style="font-size:11px; font-weight:600; letter-spacing:.1em; flex:0 0 9rem;">Segments</span>
+        <span class="font-display text-ink" style="font-size:13px; flex:1 1 220px;">ABAP · EDI/B2B · IDOC &amp; ALE · OPENTEXT MIDDLEWARE</span>
       </div>
 
     </div>
 
-    <!-- Mobile photo -->
-    <div class="js-reveal-scale lg:hidden flex justify-center mt-12" style="--delay: 280ms">
-      <div class="relative w-32">
-        <div class="absolute -inset-1.5 bg-cta opacity-[0.08] -z-10"></div>
-        <div class="overflow-hidden border border-line w-32 h-40">
-          <Image
-            src={vijeth}
-            alt="Vijeth Pereira"
-            class="w-full h-full object-cover object-top"
-            loading="eager"
-            width="128"
-            height="160"
-          />
-        </div>
-      </div>
+    <!-- CTA buttons -->
+    <div class="js-reveal flex flex-wrap items-center gap-4" style="--delay:140ms; margin-top:28px;">
+      <a
+        href="#work"
+        class="font-display text-white bg-cta hover:opacity-90 transition-opacity duration-200 cursor-pointer btn-shimmer"
+        style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; padding:14px 26px;"
+      >
+        View Work
+      </a>
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener"
+        class="font-display text-ink border-2 border-ink hover:bg-ink hover:text-paper active:scale-[0.98] transition-all duration-200 cursor-pointer"
+        style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; padding:12px 24px;"
+      >
+        Download Resume
+      </a>
+      <a
+        href="#contact"
+        class="font-display text-muted hover:text-ink transition-colors duration-200 cursor-pointer underline underline-offset-4"
+        style="font-size:12px;"
+      >
+        Get in Touch →
+      </a>
+    </div>
+
+    <!-- Meta strip -->
+    <div class="js-reveal border-t border-line" style="--delay:220ms; margin-top:32px; padding-top:24px;">
+      <p class="font-body text-muted" style="font-size:12px; line-height:1.7; margin:0;">
+        <span class="font-display font-semibold text-ink">5+ Years</span> EDI &amp; SAP Integration
+        &nbsp;·&nbsp;
+        <span class="font-display font-semibold text-ink">Bengaluru, India</span>
+        &nbsp;·&nbsp;
+        Remote-ready
+        &nbsp;·&nbsp;
+        <span class="text-posted font-semibold">Open to new roles</span>
+      </p>
     </div>
 
   </div>
+
+  <!-- Right: Photo -->
+  <div class="js-reveal-scale hidden lg:block" style="--delay:120ms; flex:0 1 300px; min-width:200px;">
+    <div
+      id="photo-float"
+      style="position:relative; will-change:transform; transition:transform .25s cubic-bezier(.25,.46,.45,.94);"
+    >
+      <div class="absolute bg-cta" style="inset:-10px; opacity:.08; z-index:-1;"></div>
+      <div class="border border-line overflow-hidden">
+        <Image
+          src={vijeth}
+          alt="Vijeth Pereira — Senior Integration Engineer"
+          class="w-full object-cover object-top"
+          style="aspect-ratio:3/4; display:block;"
+          loading="eager"
+          width="352"
+          height="469"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile photo -->
+  <div class="js-reveal-scale lg:hidden flex justify-center" style="--delay:280ms; width:100%;">
+    <div class="relative" style="width:128px;">
+      <div class="absolute bg-cta" style="inset:-6px; opacity:.08; z-index:-1;"></div>
+      <div class="border border-line overflow-hidden">
+        <Image
+          src={vijeth}
+          alt="Vijeth Pereira"
+          class="w-full h-full object-cover object-top"
+          loading="eager"
+          width="128"
+          height="160"
+        />
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <script is:inline>
   (function () {
-    var hero  = document.getElementById("hero");
+    var hero  = document.getElementById("hero-section");
     var photo = document.getElementById("photo-float");
     if (!hero || !photo) return;
 
     hero.addEventListener("mousemove", function (e) {
       var r  = hero.getBoundingClientRect();
-      var nx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2); // -1 to 1
+      var nx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
       var ny = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-      photo.style.transform = "translate(" + (nx * 35).toFixed(1) + "px, " + (ny * 22).toFixed(1) + "px)";
+      photo.style.transform = "translate(" + (nx * 28).toFixed(1) + "px, " + (ny * 16).toFixed(1) + "px)";
     });
 
     hero.addEventListener("mouseleave", function () {
