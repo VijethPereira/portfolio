@@ -52,6 +52,23 @@ import vijeth from "../assets/vijeth.jpg";
 
     </div>
 
+    <!-- Mobile photo — shown between card and CTAs on small screens -->
+    <div class="js-reveal-scale lg:hidden flex justify-center" style="--delay:100ms; margin-top:24px;">
+      <div class="relative" style="width:120px;">
+        <div class="absolute bg-cta" style="inset:-6px; opacity:.08; z-index:-1;"></div>
+        <div class="border border-line overflow-hidden">
+          <Image
+            src={vijeth}
+            alt="Vijeth Pereira"
+            class="w-full h-full object-cover object-top"
+            loading="eager"
+            width="120"
+            height="150"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- CTA buttons -->
     <div class="js-reveal flex flex-wrap items-center gap-4" style="--delay:140ms; margin-top:28px;">
       <a
@@ -115,22 +132,6 @@ import vijeth from "../assets/vijeth.jpg";
     </div>
   </div>
 
-  <!-- Mobile photo -->
-  <div class="js-reveal-scale lg:hidden flex justify-center" style="--delay:280ms; width:100%;">
-    <div class="relative" style="width:128px;">
-      <div class="absolute bg-cta" style="inset:-6px; opacity:.08; z-index:-1;"></div>
-      <div class="border border-line overflow-hidden">
-        <Image
-          src={vijeth}
-          alt="Vijeth Pereira"
-          class="w-full h-full object-cover object-top"
-          loading="eager"
-          width="128"
-          height="160"
-        />
-      </div>
-    </div>
-  </div>
 
 </section>
 
