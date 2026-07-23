@@ -26,6 +26,7 @@ pnpm-debug.log*
 # Claude Code
 .claude/
 .agents/
+.mcp.json
 
 # ui-ux-pro-max plugin artifacts
 design-system/
