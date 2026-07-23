@@ -1,5 +1,24 @@
 ---
 import SectionHeading from "../components/SectionHeading.astro";
+
+const projects = [
+  {
+    href: "https://quickmeasuretool.com",
+    domain: "quickmeasuretool.com",
+    title: "Quick Measure — Free Online Measurement Tools",
+    description: "A suite of browser-based measurement and calculator tools — online ruler (cm/mm/in with screen calibration), protractor, slope & grade, roof pitch, right triangle, and area calculator. No download, no sign-up. Built as a hobby project; live and actively growing.",
+    tags: ["Online Ruler", "Protractor", "Slope & Grade", "Roof Pitch", "Right Triangle", "Area Calculator"],
+    stack: "Astro · Tailwind CSS · Cloudflare Pages · Multi-language · Dark mode · Claude Code",
+  },
+  {
+    href: "https://snapimagetools.com",
+    domain: "snapimagetools.com",
+    title: "Snap Image Tools — Free Browser-Based Image Tools",
+    description: "A privacy-first image toolkit that runs entirely in the browser — compress to exact file sizes, resize for passport photos and social media, convert between JPEG/PNG/WebP, rotate, and apply filters. No uploads, no server, 100% private.",
+    tags: ["Compress", "Resize", "Convert", "Passport Photo", "WebP", "Rotate & Filter"],
+    stack: "HTML5 Canvas API · Cloudflare Pages · Multi-language · Dark mode · Claude Code",
+  },
+];
 ---
 
 <section id="projects" class="border-t border-line px-6" style="padding-top:clamp(48px,7vw,88px); padding-bottom:clamp(48px,7vw,88px);">
@@ -9,49 +28,48 @@ import SectionHeading from "../components/SectionHeading.astro";
       <SectionHeading segment="SEGMENT 05 — SE38 · ABAP Editor" title="Side Projects" number="05" />
     </div>
 
-    <a
-      class="js-reveal-scale block border border-line bg-surface hover:border-cta hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer"
-      href="https://quickmeasuretool.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      style="max-width:640px;"
-    >
-      <!-- Status bar -->
-      <div class="border-b border-line flex items-center justify-between" style="padding:12px 22px;">
-        <span class="flex items-center gap-2">
-          <span class="rounded-full bg-posted dot-pulse" style="width:7px; height:7px;" aria-hidden="true"></span>
-          <span class="font-display text-muted uppercase" style="font-size:11px; font-weight:500; letter-spacing:.1em;">Live</span>
-        </span>
-        <span class="font-display text-muted" style="font-size:11px;">quickmeasuretool.com →</span>
-      </div>
-
-      <!-- Body -->
-      <div style="padding:22px;">
-        <h3 class="font-display font-bold text-ink" style="font-size:14px; margin:0 0 12px; line-height:1.4;">
-          Quick Measure — Free Online Measurement Tools
-        </h3>
-        <p class="font-body text-ink" style="font-size:13.5px; line-height:1.65; margin:0 0 20px;">
-          A suite of browser-based measurement and calculator tools — online ruler (cm/mm/in with
-          screen calibration), protractor, slope &amp; grade, roof pitch, right triangle, and area
-          calculator. No download, no sign-up. Built as a hobby project; live and actively growing.
-        </p>
-
-        <div class="flex flex-wrap gap-2" style="margin-bottom:18px;">
-          {[
-            "Online Ruler", "Protractor", "Slope & Grade",
-            "Roof Pitch", "Right Triangle", "Area Calculator",
-          ].map((tool) => (
-            <span class="font-display border border-line bg-paper text-ink" style="font-size:10.5px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; padding:5px 10px;">
-              {tool}
+    <div class="flex flex-col gap-5" style="max-width:640px;">
+      {projects.map((project, i) => (
+        <a
+          class="js-reveal-scale block border border-line bg-surface hover:border-cta hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer"
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={`--delay:${i * 80}ms`}
+        >
+          <!-- Status bar -->
+          <div class="border-b border-line flex items-center justify-between" style="padding:12px 22px;">
+            <span class="flex items-center gap-2">
+              <span class="rounded-full bg-posted dot-pulse" style="width:7px; height:7px;" aria-hidden="true"></span>
+              <span class="font-display text-muted uppercase" style="font-size:11px; font-weight:500; letter-spacing:.1em;">Live</span>
             </span>
-          ))}
-        </div>
+            <span class="font-display text-muted" style="font-size:11px;">{project.domain} →</span>
+          </div>
 
-        <p class="font-display text-muted uppercase" style="font-size:11px; letter-spacing:.06em; margin:0;">
-          Astro &nbsp;·&nbsp; Tailwind CSS &nbsp;·&nbsp; Cloudflare Pages &nbsp;·&nbsp; Multi-language &nbsp;·&nbsp; Dark mode
-        </p>
-      </div>
-    </a>
+          <!-- Body -->
+          <div style="padding:22px;">
+            <h3 class="font-display font-bold text-ink" style="font-size:14px; margin:0 0 12px; line-height:1.4;">
+              {project.title}
+            </h3>
+            <p class="font-body text-ink" style="font-size:13.5px; line-height:1.65; margin:0 0 20px;">
+              {project.description}
+            </p>
+
+            <div class="flex flex-wrap gap-2" style="margin-bottom:18px;">
+              {project.tags.map((tag) => (
+                <span class="font-display border border-line bg-paper text-ink" style="font-size:10.5px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; padding:5px 10px;">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <p class="font-display text-muted uppercase" style="font-size:11px; letter-spacing:.06em; margin:0;">
+              {project.stack}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
 
   </div>
 </section>
